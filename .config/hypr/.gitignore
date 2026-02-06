@@ -1,0 +1,15 @@
+animations/
+hyprlock/
+shaders/
+themes/
+workflows/
+
+animations.conf
+hypridle.conf
+hyprland.conf
+hyprlock.conf
+monitors.conf
+pyprland.toml
+shaders.conf
+userprefs.conf
+workflows.conf
