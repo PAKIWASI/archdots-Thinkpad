@@ -9,7 +9,7 @@
     "separator": " : ",
     "bar": {
       "char": {
-        "elapsed": "=",     // TODO: better looking symbols ?
+        "elapsed": "=",
         "total": "-"
       },
       "width": 13
@@ -42,7 +42,7 @@
     {
       "type": "terminal",
       "key": "{#cyan}│ {#yellow} Terminal",
-      "format": "{2}                       {#cyan}│",
+      "format": "tmux                        {#cyan}│"
     },
     {
       "type": "shell",
@@ -65,46 +65,42 @@
       "type": "custom",
       "format": "{#green}╭──────────────────────────────────────────╮"
     },
-    {
+    { // "format": "{1} @ {7}",
       "type": "cpu",
-      // "format": "{1} @ {7}",
-      "format": "Intel i5-1135G7 @ 4.20 GHz",
-      "key": "   CPU    ",
-      "keyColor": "blue"
+      "format": "Intel i5-1135G7 @ 4.20 GHz   {#green}│",
+      "key": "{#green}│ {#blue} CPU    "
     },
     {
       "type": "gpu",
-      "format": "{1} {2}",
-      "key": "  󰊴 GPU    ",
-      "keyColor": "blue"
+      "format": "{1} {2}       {#green}│",
+      "key": "{#green}│ {#blue}󰊴 GPU    "
     },
     {
       "type": "memory",
-      "key": "  󰑭 Memory ",
-      "keyColor": "magenta"
+      "key": "{#green}│ {#magenta}󰑭 Memory ",
+      "format": "{4}            {#green}│"
     },
     {
       "type": "disk",
-      "key": "  󰋊 Disk   ",
+      "key": "{#green}│ {#yellow}󰋊 Disk   ",
       "folders": "/",
-      "keyColor": "33"
+      "format": "{13}            {#green}│"
     },
     {
       "type": "battery",
-      "key": "  󰁹 Battery",
-      "keyColor": "green"
+      "key": "{#green}│ {#green}󰁹 Battery",
+      "format": "{10}            {#green}│"
     },
     {
       "type": "disk",
-      "key": "  󱦟 OS Age ",
+      "key": "{#green}│ {#red}󱦟 OS Age ",
       "folders": "/",
-      "keyColor": "red",
-      "format": "{days} days"
+      "format": "{days} days                       {#green}│"
     },
     {
       "type": "uptime",
-      "key": "  󱫐 Uptime ",
-      "keyColor": "red"
+      "key": "{#green}│ {#red}󱫐 Uptime ",
+      "format": "{10}                      {#green}│"
     },
     {
       "type": "custom",
