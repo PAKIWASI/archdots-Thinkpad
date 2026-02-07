@@ -6,7 +6,7 @@
     "height": 18
   },
   "display": {
-    "separator": " : ",
+    "separator": " │ ",
     "bar": {
       "char": {
         "elapsed": "=",
@@ -97,11 +97,11 @@
       "folders": "/",
       "format": "{days} days                       {#green}│"
     },
-    {
-      "type": "uptime",
-      "key": "{#green}│ {#red}󱫐 Uptime ",
-      "format": "{10}                      {#green}│"
-    },
+    // {
+    //   "type": "uptime",
+    //   "key": "{#green}│ {#red}󱫐 Uptime ",
+    //   "format": "{10}                      {#green}│"
+    // },
     {
       "type": "custom",
       "format": "{#green}╰──────────────────────────────────────────╯"
