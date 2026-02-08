@@ -110,8 +110,17 @@ CompileFlags:
   CompilationDatabase: build/
   Add:
     - -std=c99
+    - -Wall
+    - -Wextra
+    - -Wpedantic
     - -Wstrict-prototypes
-    - -Wconversion  # can be noisy
+    - -Wconversion
+    - -Wshadow
+    - -Wwrite-strings
+    - -Wpointer-arith
+    - -Wformat=2
+    - -Wold-style-definition
+    - -Wnull-dereference
 
 Diagnostics:
   ClangTidy:
@@ -122,15 +131,27 @@ Diagnostics:
       - performance-*
       - portability-*
       - readability-*
+      - misc-*
     Remove:
-      # Too noisy
+      # Too noisy or subjective
       - readability-magic-numbers
       - readability-identifier-length
+      - readability-identifier-naming
       - readability-function-cognitive-complexity
       - readability-uppercase-literal-suffix
-      - readability-identifier-naming  
       - bugprone-easily-swappable-parameters
-      - cert-err33-c                  
+      - readability-avoid-const-params-in-decls
+      - readability-isolate-declaration
+      
+      # Often impractical for C
+      - cert-err33-c  # Would require checking every function return
+      - bugprone-assignment-in-if-condition  # Sometimes intentional in C
+      - misc-include-cleaner  # Can be too aggressive
+      
+      # C-specific exceptions
+      - readability-non-const-parameter  # Common in C APIs
+      - cert-dcl03-c  # Reserved identifiers - allow common patterns
+      
 EOF
 
 
@@ -158,7 +179,7 @@ AlignTrailingComments: true
 
 # Spacing (your preferences)
 KeepEmptyLinesAtTheStartOfBlocks: true
-MaxEmptyLinesToKeep: 2
+MaxEmptyLinesToKeep: 3
 SortIncludes: true
 
 # Common sane defaults
