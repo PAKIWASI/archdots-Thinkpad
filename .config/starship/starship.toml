@@ -4,7 +4,7 @@ format = """\
   [╭╴](fg:#00e6e6)\
   [󰣇 ](fg:#e680e6)\
   $hostname\
-  [ ](fg:#e6b3e6)\
+  [ ](fg:#e680e6)\
   $username\
   $directory\
   $git_branch$git_commit$git_state $git_status\

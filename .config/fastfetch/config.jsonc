@@ -9,7 +9,7 @@
     "separator": " │ ",
     "bar": {
       "char": {
-        "elapsed": "=",
+        "elapsed": "=", // █░
         "total": "-"
       },
       "width": 13
@@ -95,7 +95,7 @@
       "type": "disk",
       "key": "{#green}│ {#red}󱦟 OS Age ",
       "folders": "/",
-      "format": "{days} days                       {#green}│"
+      "format": "{days} days                      {#green}│"
     },
     // {
     //   "type": "uptime",

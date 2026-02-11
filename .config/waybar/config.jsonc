@@ -61,8 +61,7 @@
             "backlight",
             "network",
             "pulseaudio",
-            "pulseaudio#microphone",
-            "custom/updates",
+            "pulseaudio#microphone"
         ]
     },
     "group/pill#right2": {
