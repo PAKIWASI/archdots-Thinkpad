@@ -42,6 +42,7 @@ mkdir -p src include build
 echo "${YELLOW}Creating CMakeLists.txt...${NC}"
 cat > CMakeLists.txt << EOF
 cmake_minimum_required(VERSION 3.20)
+
 set(CMAKE_C_COMPILER clang)
 
 project(${PROJECT_NAME} LANGUAGES C)
