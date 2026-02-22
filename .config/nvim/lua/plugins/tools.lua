@@ -1,23 +1,4 @@
 return {
-    --[[
-    -- fzf-lua : snacks picker backend
-    {
-        "ibhagwan/fzf-lua",
-        event = "VeryLazy",
-        dependencies = {
-            "nvim-tree/nvim-web-devicons",
-        },
-        opts = {
-            winopts = {
-                border = "rounded",
-                preview = {
-                    layout = "vertical",
-                    vertical = "up:60%",
-                },
-            },
-        },
-    },
-    --]]
 
     -- grug-far : search and replace (uses ripgrep)
     {
@@ -43,7 +24,6 @@ return {
             },
         },
     },
-
 
     -- color picker
     {
@@ -114,5 +94,4 @@ return {
             },
         },
     },
-
 }
