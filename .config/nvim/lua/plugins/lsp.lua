@@ -133,6 +133,7 @@ return {
 
             -- On attach function
             local on_attach = function(client, bufnr)
+
                 local function map(mode, lhs, rhs, desc)
                     vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, silent = true, desc = desc })
                 end

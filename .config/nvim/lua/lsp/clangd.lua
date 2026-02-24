@@ -9,7 +9,7 @@ return {
         "--header-insertion=iwyu",
         "--completion-style=detailed",
         "--fallback-style=llvm",
-        "--query-driver=/usr/bin/clang",
+        "--query-driver=/usr/bin/clang*",
     },
     filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
     capabilities = {
@@ -18,8 +18,9 @@ return {
     single_file_support = true,
 
 
-    -- Use on_attach instead of keys
     on_attach = function(_, bufnr)
+
+        -- Floating terminal window
         local Win = {
             style = "terminal",
             position = "float",
@@ -33,7 +34,10 @@ return {
             vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, silent = true, desc = desc })
         end
 
-        map('n', '<leader>ch', '<cmd>LspClangdSwitchSourceHeader<CR>', 'Switch Source/Header')
+        map('n', '<leader>ch', function()
+            require("utils.src_header_switcher").switcher(bufnr)
+        end, 'Switch Source/Header')
+        -- map('n', '<leader>ch', '<cmd>LspClangdSwitchSourceHeader<CR>', 'Switch Source/Header')
 
         map('n', '<leader>cc', function()
             local ft = vim.bo.filetype
@@ -61,5 +65,6 @@ return {
         end, 'Build and Run')
     end,
 }
+
 
 

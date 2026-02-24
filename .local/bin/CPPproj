@@ -138,6 +138,8 @@ Diagnostics:
       - readability-identifier-length
       - readability-function-cognitive-complexity
 
+      - modernize-use-trailing-return-type
+
       - bugprone-easily-swappable-parameters
 
       - cppcoreguidelines-avoid-magic-numbers

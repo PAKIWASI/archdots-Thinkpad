@@ -3,6 +3,7 @@
 
 
 local M = {
+
     function()
         local reg = vim.fn.reg_recording()
         if reg == "" then
@@ -10,6 +11,7 @@ local M = {
         end
         return " @" .. reg
     end,
+
     color = function()
         -- active recording → red
         if vim.fn.reg_recording() ~= "" then
@@ -18,7 +20,6 @@ local M = {
         return {}
     end,
 }
-
 
 
 return M
