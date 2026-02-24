@@ -3,6 +3,7 @@
 # C++ CMake Ninja Project Setup and Build Script
 
 set -e
+
 PROJECT_NAME="${1:-CPPproj}"
 
 # Colors
@@ -11,7 +12,7 @@ GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
 NC='\033[0m'
 
-echo "${GREEN}Setting up C++ CMake Ninja project: ${PROJECT_NAME}${NC}"
+echo "${GREEN}Setting up C++20 CMake Ninja project: ${PROJECT_NAME}${NC}"
 
 # Check dependencies
 echo "${YELLOW}Checking dependencies...${NC}"
@@ -41,6 +42,7 @@ mkdir -p src include build
 echo "${YELLOW}Creating CMakeLists.txt...${NC}"
 cat > CMakeLists.txt << EOF
 cmake_minimum_required(VERSION 3.20)
+
 set(CMAKE_CXX_COMPILER clang++)
 
 project(${PROJECT_NAME} LANGUAGES CXX)
@@ -67,28 +69,51 @@ set(CMAKE_CXX_FLAGS_RELEASE "-O3 -DNDEBUG")
 set(CMAKE_EXE_LINKER_FLAGS_RELEASE "")
 
 
-file(GLOB SRC_FILES "src/*.cpp")
+set(SRC_FILES
+    src/example.cpp
+)
 
-add_executable(main \${SRC_FILES})
+add_executable(main
+    src/main.cpp
+    \${SRC_FILES}
+)
+
 target_include_directories(main PRIVATE include)
 EOF
 
-# Create sample header
+# Create 
+
 echo "${YELLOW}Creating example and config files...${NC}"
+
+# Create sample header
 cat > include/example.hpp << 'EOF'
 #pragma once
+
+void print_hello();
+
+EOF
+
+# Create sample cpp file
+cat > src/example.cpp << 'EOF'
+#include <iostream>
+
+void print_hello()
+{
+    std::cout << "Hello From C++20 CMake Ninja Project!\n";
+}
 
 EOF
 
 cat > src/main.cpp << 'EOF'
-#include <iostream>
+#include "example.hpp"
 
 int main() 
 {
-    std::cout << "Hello from C++ CMake Ninja project!" << '\n';
+    print_hello();
 
     return 0;
 }
+
 EOF
 
 cat > .clangd << 'EOF'
@@ -112,7 +137,9 @@ Diagnostics:
       - readability-magic-numbers
       - readability-identifier-length
       - readability-function-cognitive-complexity
+
       - bugprone-easily-swappable-parameters
+
       - cppcoreguidelines-avoid-magic-numbers
 EOF
 
@@ -202,7 +229,9 @@ echo "${GREEN}✓ Build complete!${NC}"
 echo ""
 
 echo "${YELLOW}Running project...${NC}"
+echo
 ./main
+echo
 echo "${GREEN}✓ Execution complete!${NC}"
 
 echo "Project created at: ${PWD:h}"

@@ -69,28 +69,40 @@ set(CMAKE_C_FLAGS_RELEASE "-O3 -DNDEBUG")
 set(CMAKE_EXE_LINKER_FLAGS_RELEASE "")
 
 
-file(GLOB SRC_FILES "src/*.c")
+set(SRC_FILES
+    src/example.c
+)
 
-add_executable(main \${SRC_FILES})
+add_executable(main
+    src/main.c
+    \${SRC_FILES}
+)
+
 target_include_directories(main PRIVATE include)
 EOF
 
 # Create 
 
-# Create sample header
 echo "${YELLOW}Creating example files...${NC}"
+
+# Create sample header
 cat > include/example.h << 'EOF'
 #ifndef EXAMPLE_H
 #define EXAMPLE_H
 
+void print_hello(void);
+
+#endif // EXAMPLE_H
+EOF
+
+# Create sample c file
+cat > src/example.c << 'EOF'
 #include <stdio.h>
 
 void print_hello(void)
 {
     printf("Hello from C99 CMake Ninja project!\n");
 }
-
-#endif // EXAMPLE_H
 EOF
 
 # Create sample sources
@@ -134,25 +146,22 @@ Diagnostics:
       - readability-*
       - misc-*
     Remove:
-      # Too noisy or subjective
       - readability-magic-numbers
       - readability-identifier-length
       - readability-identifier-naming
       - readability-function-cognitive-complexity
       - readability-uppercase-literal-suffix
-      - bugprone-easily-swappable-parameters
       - readability-avoid-const-params-in-decls
       - readability-isolate-declaration
+      - readability-non-const-parameter 
       
-      # Often impractical for C
-      - cert-err33-c  # Would require checking every function return
-      - bugprone-assignment-in-if-condition  # Sometimes intentional in C
-      - misc-include-cleaner  # Can be too aggressive
-      
-      # C-specific exceptions
-      - readability-non-const-parameter  # Common in C APIs
-      - cert-dcl03-c  # Reserved identifiers - allow common patterns
-      
+      - bugprone-easily-swappable-parameters
+      - bugprone-assignment-in-if-condition 
+
+      - cert-err33-c 
+      - cert-dcl03-c 
+
+      - misc-include-cleaner 
 EOF
 
 
@@ -241,7 +250,9 @@ echo ""
 echo "${GREEN}✓ Build complete!${NC}"
 echo ""
 echo "${YELLOW}Running project...${NC}"
+echo
 ./main
+echo
 echo "${GREEN}✓ Execution complete!${NC}"
 echo "Project created at: ${PWD:h}"
 
