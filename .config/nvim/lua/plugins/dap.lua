@@ -92,7 +92,7 @@ return {
                     env = {
                         -- Continue execution after ASan error
                         ASAN_OPTIONS = "detect_leaks=1:halt_on_error=0:abort_on_error=0:log_path=" ..
-                        vim.fn.getcwd() .. "/asan.log",
+                            vim.fn.getcwd() .. "/asan.log",
                         LSAN_OPTIONS = "suppressions=" .. vim.fn.getcwd() .. "/lsan.supp",
                     },
                     initCommands = {
@@ -115,6 +115,29 @@ return {
             }
 
             dap.configurations.c = dap.configurations.cpp
+
+
+            dap.adapters.lldb = {
+                type = "executable",
+                command = "lldb-dap",
+            }
+
+            dap.configurations.rust = {
+                {
+                    name = "Launch",
+                    type = "lldb",
+                    request = "launch",
+                    program = function()
+                        local path = vim.fn.input("Path to exe: (root)/")
+                        if path == "" then
+                            path = "target/debug/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
+                        end
+                        return vim.fn.getcwd() .. "/" .. path
+                    end,
+                    cwd = "${workspaceFolder}",
+                    stopOnEntry = false,
+                },
+            }
         end,
     },
 
@@ -145,5 +168,3 @@ return {
         end,
     },
 }
-
-

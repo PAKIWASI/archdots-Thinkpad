@@ -133,7 +133,6 @@ return {
 
             -- On attach function
             local on_attach = function(client, bufnr)
-
                 local function map(mode, lhs, rhs, desc)
                     vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, silent = true, desc = desc })
                 end
@@ -240,14 +239,26 @@ return {
                                     capabilities = capabilities,
                                 }, default_config, server_config)
 
-                                -- Create combined on_attach if server has one
+                                -- -- Create combined on_attach if server has one
+                                -- if server_on_attach then
+                                --     merged_config.on_attach = function(client, bufnr)
+                                --         -- Call global on_attach first
+                                --         on_attach(client, bufnr)
+                                --         -- Call default on_attach
+                                --         default_on_attach(client, bufnr)
+                                --         -- Call server-specific on_attach
+                                --         server_on_attach(client, bufnr)
+                                --     end
+                                -- else
+                                --     merged_config.on_attach = on_attach
+                                -- end
+
                                 if server_on_attach then
                                     merged_config.on_attach = function(client, bufnr)
-                                        -- Call global on_attach first
                                         on_attach(client, bufnr)
-                                        -- Call default on_attach
-                                        default_on_attach(client, bufnr)
-                                        -- Call server-specific on_attach
+                                        if default_on_attach then -- guard for rust_analyzer
+                                            default_on_attach(client, bufnr)
+                                        end
                                         server_on_attach(client, bufnr)
                                     end
                                 else
@@ -272,6 +283,7 @@ return {
                     'lua_ls',
                     'pyright',
                     'ts_ls',
+                    'rust_analyzer',
                     --'codelldb', -- only via mason
                     --'html',
                     --'cssls',
@@ -285,6 +297,7 @@ return {
                 'clangd', --mason = false
                 'pyright',
                 'ts_ls',
+                'rust_analyzer',
             })
         end,
     },
@@ -341,6 +354,3 @@ return {
         },
     },
 }
-
-
-
