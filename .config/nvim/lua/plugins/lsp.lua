@@ -131,7 +131,7 @@ return {
             -- Enhanced capabilities with nvim-cmp
             local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-            -- On attach function
+            -- Global On attach function - Common for all LSPs
             local on_attach = function(client, bufnr)
                 local function map(mode, lhs, rhs, desc)
                     vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, silent = true, desc = desc })
