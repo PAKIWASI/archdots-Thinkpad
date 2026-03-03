@@ -99,17 +99,12 @@ return {
                     --     ctermbg = 236,
                     -- },
 
+
+
+                    -- FIX for highlight too light
                     -- Make cursor line clearly visible
-                    CursorLine        = {
-                        bg = "bg_alt",
-                    },
 
-                    CursorLineNr      = {
-                        fg = "purple2",
-                        bold = true,
-                    },
-
-                    -- LSP reference highlights (this is the big one)
+                    -- LSP reference highlights
                     LspReferenceText  = { bg = "purple4" },
                     LspReferenceRead  = { bg = "purple4" },
                     LspReferenceWrite = { bg = "purple4", bold = true },
