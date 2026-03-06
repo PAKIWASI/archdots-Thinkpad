@@ -5,6 +5,7 @@
 #   Drop - Set a directory as a target to send files to
 #=============================================================
 
+
 set -o pipefail
 
 
@@ -42,6 +43,7 @@ guard_dir() {
 }
 
 
+# main logic
 
 case "$1" in
 
