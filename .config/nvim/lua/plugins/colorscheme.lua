@@ -140,3 +140,5 @@ return {
         vim.cmd("colorscheme lavender")
     end,
 }
+
+
