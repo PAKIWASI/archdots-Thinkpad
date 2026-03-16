@@ -204,7 +204,7 @@ return {
         end,
     },
 
-    -- git sighns
+    -- git signs
     {
         "lewis6991/gitsigns.nvim",
         event = "VeryLazy",
@@ -293,6 +293,4 @@ return {
             { "<leader>sT", "<cmd>TodoFzfLua keywords=TODO,FIX,FIXME<cr>",       desc = "Todo/Fix/Fixme" },
         },
     },
-
-    --
 }

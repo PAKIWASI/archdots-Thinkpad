@@ -1,6 +1,6 @@
 -- Clangd LSP config
 return {
-    mason = false, -- we handle clangd manually
+    mason = false, -- we handle clangd manually (comes with clang)
     cmd = {
         "clangd",
         "--enable-config",

@@ -16,21 +16,24 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
         os.exit(1)
     end
 end
+
+
 vim.opt.rtp:prepend(lazypath)
 
 
 -- Setup lazy.nvim
 require("lazy").setup({
     spec = {
-        -- import your plugins (lua/plugins/*.lua)
+        -- importing plugins (lua/plugins/*.lua)
         { import = "plugins" },
     },
     checker = {
+        -- no auto update
         enabled = false,
     },
     performance = {
         rtp = {
-        -- disable some rtp plugins
+            -- disable some rtp plugins
             disabled_plugins = {
                 "gzip",
                 "matchit",
@@ -44,5 +47,6 @@ require("lazy").setup({
         },
     },
 })
+
 
 

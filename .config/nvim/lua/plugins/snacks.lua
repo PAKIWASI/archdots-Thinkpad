@@ -129,8 +129,7 @@ return {
     opts = {
         picker = {
             enabled = true,
-            --TODO: what is default backend?
-            --backend = "fzfLua",
+            backend = "fzfLua",
         },
         image = {
             enabled = true,

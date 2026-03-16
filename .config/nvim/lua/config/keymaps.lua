@@ -37,7 +37,4 @@ vim.keymap.set('v', '<', '<gv', { desc = 'Indent left and reselect' })
 vim.keymap.set('v', '>', '>gv', { desc = 'Indent right and reselect' })
 
 
--- image show
-vim.keymap.set("n", "<leader>bi", function()
-    require("snacks").image.hover()
-end, { desc = "Show image under cursor" })
+
