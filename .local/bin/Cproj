@@ -146,7 +146,6 @@ Diagnostics:
       - readability-*
       - misc-*
     Remove:
-      - readability-magic-numbers
       - readability-identifier-length
       - readability-identifier-naming
       - readability-function-cognitive-complexity
