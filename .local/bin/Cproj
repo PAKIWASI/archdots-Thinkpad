@@ -123,12 +123,12 @@ CompileFlags:
   CompilationDatabase: build/
   Add:
     - -std=c11
-    - -Wall
-    - -Wextra
+    # - -Wall
+    # - -Wextra
     - -Wpedantic
     - -Wstrict-prototypes
     - -Wconversion
-    - -Wshadow
+    # - -Wshadow
     - -Wwrite-strings
     - -Wpointer-arith
     - -Wformat=2

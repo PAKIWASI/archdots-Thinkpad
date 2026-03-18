@@ -2,7 +2,6 @@ CompileFlags:
   Add:
     - -Wall
     - -Wextra
-    #- -Wpedantic
     - -Wno-unused-parameter
     - -Wunreachable-code 
     - -Wshadow
