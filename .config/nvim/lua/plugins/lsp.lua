@@ -271,7 +271,6 @@ return {
                     'lua_ls',
                     'pyright',
                     'ts_ls',
-                    'rust_analyzer',
                     --'codelldb', -- only via mason
                     --'html',
                     --'cssls',
@@ -285,7 +284,6 @@ return {
                 'clangd', --mason = false
                 'pyright',
                 'ts_ls',
-                'rust_analyzer',
             })
         end,
     },
