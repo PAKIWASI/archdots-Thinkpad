@@ -7,7 +7,7 @@ return {
         auto_install = true,
         ensure_installed = {
             "c", "cpp", "lua",
-            "python", "bash",
+            "python", "bash", "typescript",
             "html", "css", "javascript", "json",
             "yaml", "toml", "markdown",
         },

@@ -123,12 +123,9 @@ CompileFlags:
   CompilationDatabase: build/
   Add:
     - -std=c11
-    # - -Wall
-    # - -Wextra
     - -Wpedantic
     - -Wstrict-prototypes
     - -Wconversion
-    # - -Wshadow
     - -Wwrite-strings
     - -Wpointer-arith
     - -Wformat=2
@@ -146,6 +143,7 @@ Diagnostics:
       - readability-*
       - misc-*
     Remove:
+      - readability-magic-numbers
       - readability-identifier-length
       - readability-identifier-naming
       - readability-function-cognitive-complexity
@@ -153,6 +151,7 @@ Diagnostics:
       - readability-avoid-const-params-in-decls
       - readability-isolate-declaration
       - readability-non-const-parameter 
+      - readability-avoid-nested-conditional-operator
       
       - bugprone-easily-swappable-parameters
       - bugprone-assignment-in-if-condition 
@@ -161,6 +160,7 @@ Diagnostics:
       - cert-dcl03-c 
 
       - misc-include-cleaner 
+      - misc-no-recursion
 EOF
 
 
