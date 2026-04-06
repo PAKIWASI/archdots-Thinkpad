@@ -274,6 +274,7 @@ return {
                     --'codelldb', -- only via mason
                     --'html',
                     --'cssls',
+                    'tailwindcss',
                 },
             })
 
@@ -284,6 +285,7 @@ return {
                 'clangd', --mason = false
                 'pyright',
                 'ts_ls',
+                'tailwindcss',
             })
         end,
     },

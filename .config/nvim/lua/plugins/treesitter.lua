@@ -1,3 +1,4 @@
+-- TODO: is this right
 
 return {
     "nvim-treesitter/nvim-treesitter",
@@ -6,8 +7,8 @@ return {
     opts = {
         auto_install = true,
         ensure_installed = {
-            "c", "cpp", "lua",
-            "python", "bash", "typescript",
+            "c", "cpp", "lua", "jsx",
+            "python", "bash", "typescript", "tsx",
             "html", "css", "javascript", "json",
             "yaml", "toml", "markdown",
         },
