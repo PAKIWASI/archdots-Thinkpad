@@ -1,11 +1,9 @@
 
-
-
-
 local opt = vim.opt
 
 opt.signcolumn = "yes:1"    -- Always show sign column
 opt.termguicolors = true    -- Enable true colors
+
 opt.ignorecase = true       -- Ignore case in search
 opt.smartcase = true
 opt.infercase = true
@@ -18,11 +16,9 @@ opt.clipboard = "unnamedplus"
 opt.mouse = ""
 
 opt.autoindent = true       -- Enable auto indentation
--- opt.smartindent = true
 opt.expandtab = true        -- Use spaces instead of tabs
 opt.tabstop = 4             -- Number of spaces for a tab
 opt.softtabstop = 4         -- Number of spaces for a tab when editing
-
 opt.shiftwidth = 4          -- Number of spaces for autoindent
 opt.shiftround = true       -- Round indent to multiple of shiftwidth
 
@@ -40,7 +36,7 @@ opt.inccommand = "nosplit"  -- Shows the effects of a command incrementally in t
 opt.undodir = os.getenv('HOME') .. '/.nvim012/undodir'  -- Directory for undo files
 opt.undofile = true         -- Enable persistent undo
 
-opt.completeopt = { "menu", "menuone", "noinsert", "noselect" }
+opt.completeopt = { "menu", "menuone", "noselect" }
 opt.winborder = "rounded"   -- Use rounded borders for windows
 opt.hlsearch = true         -- Enable highlighting of search results
 opt.incsearch = true   -- Show matches as you type

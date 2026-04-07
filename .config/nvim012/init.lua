@@ -1,10 +1,12 @@
 
-
 require('configs')
+
 require('keymaps')
+
 require('autocmds')
-require('tools')
-require('ui')
+
+require('plugins')
+
 require('lsp')
 
-
+-- https://vieitesss.github.io/posts/Neovim-new-config
