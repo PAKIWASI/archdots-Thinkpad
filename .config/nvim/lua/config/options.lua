@@ -3,6 +3,7 @@
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.cursorline = true    -- show line highlight at curr line
+vim.o.list = true
 
 
 vim.o.termguicolors = true -- Better colors in terminal
