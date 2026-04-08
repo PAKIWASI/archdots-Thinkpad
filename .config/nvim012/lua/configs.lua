@@ -42,7 +42,7 @@ opt.hlsearch = true         -- Enable highlighting of search results
 opt.incsearch = true   -- Show matches as you type
 
 opt.updatetime = 250    -- for lsp/diagnostics
-opt.timeoutlen = 400
+opt.timeoutlen = 300    -- wait for additional key else mapping ends
 
 opt.wildmenu = true
 opt.wildmode = "longest:full,full"

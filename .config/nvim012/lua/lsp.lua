@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(ev)
         -- ev.buf  = the buffer the server attached to
         -- ev.data.client_id = the server that just attached
-        -- local client = vim.lsp.get_client_by_id(ev.data.client_id)
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
 
         local map = function(keys, func, desc)
             vim.keymap.set("n", keys, func, { buffer = ev.buf, desc = "LSP: " .. desc })
@@ -26,7 +26,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         -- Docs
         map("K", vim.lsp.buf.hover, "Hover Docs")
-        map("<C-k>", vim.lsp.buf.signature_help, 'Signature Help')
+        -- map("<C-K>", vim.lsp.buf.signature_help, 'Signature Help')
+        -- vim.keymap.set({"n", "i"}, "<C-K>", vim.lsp.buf.signature_help, { desc="Signature Help" })
 
         -- Refactor
         map("<leader>cr", vim.lsp.buf.rename, "Rename Symbol")
@@ -47,7 +48,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
             "Prev Warning")
 
         -- Highlight symbol under cursor
-        if client and client.supports_method("textDocument/documentHighlight") then
+        if client and client:supports_method("textDocument/documentHighlight") then
             local highlight_group = vim.api.nvim_create_augroup("lsp_document_highlight", { clear = false })
             vim.api.nvim_clear_autocmds({ buffer = ev.buf, group = highlight_group })
             vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -72,10 +73,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 
 local servers = {
+    "clangd",
+    "ts_ls",
     "lua_ls",
-    -- "pyright",
-    -- "ts_ls",
-    -- "clangd",
 }
 
 

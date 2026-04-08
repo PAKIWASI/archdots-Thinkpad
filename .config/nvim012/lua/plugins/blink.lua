@@ -9,7 +9,7 @@ require('blink.cmp').setup({
         ["<C-p>"] = {},
         ["<Tab>"] = {},
         ["<S-Tab>"] = {},
-        ["<C-y>"] = { "show", "show_documentation", "hide_documentation" },
+        ["<C-y>"] = { "show_documentation", "hide_documentation" }, -- TODO: not working
         ["<C-n>"] = { "select_and_accept" },
         ["<C-k>"] = { "select_prev", "fallback" },
         ["<C-j>"] = { "select_next", "fallback" },
@@ -22,7 +22,7 @@ require('blink.cmp').setup({
 
     appearance = {
         use_nvim_cmp_as_default = true,
-        nerd_font_variant = "normal",
+        nerd_font_variant = "mono",
     },
 
     completion = {
@@ -39,7 +39,9 @@ require('blink.cmp').setup({
         },
     },
 
-    sources = { default = { "lsp" } }
+    -- TODO:
+    -- sources = { default = { "lsp" } }
+    sources = { default = { 'lsp', 'path', 'snippets', 'buffer' } }
 })
 
 

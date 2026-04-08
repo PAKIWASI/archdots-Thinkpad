@@ -1,9 +1,6 @@
 require("snacks").setup({
-    picker       = {
-        enabled = true,
-        backend = "fzfLua",
-    },
-    image        = { enabled = false },
+    picker       = { enabled = true },
+    -- image        = { enabled = false },
     notifier     = { enabled = true },
     words        = { enabled = true },
     bigfile      = { enabled = true },
@@ -16,7 +13,7 @@ require("snacks").setup({
     lazygit      = { enabled = true },
     dashboard    = {
         preset = {
-            keys = { -- TODO: icons
+            keys = {
                 { key = "f", desc = "Find File", icon = " ", action = function() Snacks.picker.smart() end },
                 { key = "n", desc = "New File", icon = " ", action = function() vim.cmd("ene | startinsert") end },
                 { key = "g", desc = "Find Text", icon = " ", action = function() Snacks.picker.grep() end },
@@ -53,8 +50,6 @@ require("snacks").setup({
         sections = {
             { section = "header" },
             { section = "keys",  gap = 1, padding = 1 },
-            -- { section = "startup" },
-            -- TODO: error
             {
                 text = {
                     { require("utils.startup").format(), hl = "SnacksDashboardFooter" },
@@ -161,6 +156,14 @@ end, { desc = "Terminal (bottom) cwd" })
 map("n", "<leader>ft", function()
     Snacks.terminal(nil, {
         cwd = vim.fn.expand("%:p:h"),
-        win = { style = "terminal", position = "float", backdrop = 60, border = "rounded", width = 0.5, height = 0.7 },
+        win = require("utils.win").float,
     })
 end, { desc = "Floating Terminal (cwd)" })
+
+map("n", "<leader>fT", function()
+    Snacks.terminal(nil, {
+        cwd = require("utils.root").get(), -- TODO: this requires buffno
+        win = require("utils.win").float,
+    })
+end, { desc = "Floating Terminal (cwd)" })
+

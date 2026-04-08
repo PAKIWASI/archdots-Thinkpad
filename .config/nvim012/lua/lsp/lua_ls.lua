@@ -12,7 +12,6 @@ return {
         'stylua.toml',
         '.git',
     },
-    ---@type lspconfig.settings.lua_ls
     settings = {
         Lua = {
             runtime = {
@@ -23,7 +22,7 @@ return {
             },
             diagnostics = {
                 enable = true,
-                globals = { "vim" },
+                globals = { "vim", "Snacks" },
             },
             workspace = {
                 library = { vim.env.VIMRUNTIME },

@@ -4,7 +4,6 @@ local map = vim.keymap.set;
 local s = { silent = true }
 -- local opts = { noremap = true, silent = true }
 
-
 -- unset spacebar
 map({ "n", "v" }, "<Space>", "<Nop>", s)
 
@@ -23,7 +22,7 @@ map({ 'n', 'v', 'i' }, '<C-s>', function()
 
 
 -- force quit
-map({ 'n', 'v', 'i' }, '<leader>qq', "<cmd>quitall<CR>", { desc = 'Force Quit' })
+map({ 'n', 'v' }, '<leader>qq', "<cmd>quitall<CR>", { desc = 'Force Quit' })
 
 -- Change directory to the current file's directory
 map("n", "<leader>cd", '<cmd>lua vim.fn.chdir(vim.fn.expand("%:p:h"))<CR>')
@@ -44,10 +43,6 @@ map('v', '>', '>gv', { desc = 'Indent right and reselect' })
 -- Paste without overwriting the default register
 map("v", "<leader>p", '"_dP')
 
-
-
-
--- TODO: add vim.pack stuff
 map("n", "<leader>ps", '<cmd>lua vim.pack.update()<CR>')
 
 

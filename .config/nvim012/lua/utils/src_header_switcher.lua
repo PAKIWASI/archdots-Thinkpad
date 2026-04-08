@@ -1,4 +1,3 @@
-
 -- Utility for Clangd switching src/header files
 -- If clangd fails, we switch manually, using project structure
 
@@ -10,7 +9,6 @@ local M = {}
 -- function to manually switch between header/src
 -- requires src/ include/ dir structure
 local function manual_switcher(bufnr)
-
     local extensions = {
         c   = { "h" },
         h   = { "c" },
@@ -34,7 +32,6 @@ local function manual_switcher(bufnr)
 
     for _, target_ext in ipairs(targets) do
         for _, dir in ipairs({ "include", "src", "." }) do
-
             local candidate = root .. "/" .. dir .. "/" .. base .. "." .. target_ext
             if vim.fn.filereadable(candidate) == 1 then
                 vim.cmd("edit " .. candidate)
@@ -49,22 +46,22 @@ end
 
 -- check if we can get LSP switch, if not do manual
 function M.switcher(bufnr)
-
     local client = vim.lsp.get_clients({ bufnr = 0, name = "clangd" })[1]
     if not client then
         manual_switcher()
         return
     end
 
-    -- TODO: 
-    client:request("textDocument/switchSourceHeader", vim.lsp.util.make_text_document_params(), function(err, result)
-        if err or not result or result == "" then
-            manual_switcher(bufnr)
-        else
-            vim.cmd("edit " .. vim.uri_to_fname(result))
-        end
-    end, 0)
+    -- TODO:
+    client:request("textDocument/switchSourceHeader" --[[@as any]],
+        vim.lsp.util.make_text_document_params(),
+        function(err, result)
+            if err or not result or result == "" then
+                manual_switcher(bufnr)
+            else
+                vim.cmd("edit " .. vim.uri_to_fname(result))
+            end
+        end, 0)
 end
-
 
 return M
