@@ -1,4 +1,5 @@
 
+
 -- blink.cmp merges its own + neovim's default capabilities internally
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 
@@ -16,7 +17,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
             vim.keymap.set("n", keys, func, { buffer = ev.buf, desc = "LSP: " .. desc })
         end
 
-        -- Navigation
+        -- Navigation   -- these overwritten by snacks
         map("gd", vim.lsp.buf.definition, "Go to Definition")
         map("gD", vim.lsp.buf.declaration, "Go to Declaration")
         map("gr", vim.lsp.buf.references, "Go to References")
@@ -25,11 +26,41 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
         -- Docs
         map("K", vim.lsp.buf.hover, "Hover Docs")
+        map("<C-k>", vim.lsp.buf.signature_help, 'Signature Help')
 
         -- Refactor
-        map("<leader>rn", vim.lsp.buf.rename, "Rename Symbol")
+        map("<leader>cr", vim.lsp.buf.rename, "Rename Symbol")
         map("<leader>ca", vim.lsp.buf.code_action, "Code Action")
         map("<leader>cf", vim.lsp.buf.format, "Format Buffer")
+
+        -- Diagnostics
+        map("<leader>cd", vim.diagnostic.open_float, "Line Diagnostics")
+        map("<leader>cj", function() vim.diagnostic.jump({ count = 1, float = true }) end, "Next Diagnostic")
+        map("<leader>ck", function() vim.diagnostic.jump({ count = -1, float = true }) end, "Prev Diagnostic")
+        map("]e", function() vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.ERROR }) end,
+            "Next Error")
+        map("[e", function() vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.ERROR }) end,
+            "Prev Error")
+        map("]w", function() vim.diagnostic.jump({ count = 1, severity = vim.diagnostic.severity.WARN }) end,
+            "Next Warning")
+        map("[w", function() vim.diagnostic.jump({ count = -1, severity = vim.diagnostic.severity.WARN }) end,
+            "Prev Warning")
+
+        -- Highlight symbol under cursor
+        if client and client.supports_method("textDocument/documentHighlight") then
+            local highlight_group = vim.api.nvim_create_augroup("lsp_document_highlight", { clear = false })
+            vim.api.nvim_clear_autocmds({ buffer = ev.buf, group = highlight_group })
+            vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+                buffer = ev.buf,
+                group = highlight_group,
+                callback = vim.lsp.buf.document_highlight,
+            })
+            vim.api.nvim_create_autocmd("CursorMoved", {
+                buffer = ev.buf,
+                group = highlight_group,
+                callback = vim.lsp.buf.clear_references,
+            })
+        end
 
         -- disable formatting for servers you don't want formatting from.
         -- if client and client.name == "lua_ls" then
@@ -59,13 +90,34 @@ for _, name in ipairs(servers) do
 end
 
 
--- Diagnostic display config.
+-- diagnostic ui config
 vim.diagnostic.config({
-    virtual_text = true,      -- inline error messages at end of line
-    signs = true,             -- gutter icons (E/W/I/H)
-    underline = true,         -- squiggly underline on the problem range
-    update_in_insert = false, -- false means diagnostics don't update while you're typing,
-    severity_sort = true,     -- errors shown above warnings in the gutter/float
+    virtual_text = {
+        prefix = function(diagnostic)
+            local icons = {
+                [vim.diagnostic.severity.ERROR] = "✘",
+                [vim.diagnostic.severity.WARN]  = "●",
+                [vim.diagnostic.severity.HINT]  = "⚑",
+                [vim.diagnostic.severity.INFO]  = "»",
+            }
+            return icons[diagnostic.severity] or "●"
+        end,
+    },
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = " ",
+            [vim.diagnostic.severity.WARN]  = " ",
+            [vim.diagnostic.severity.HINT]  = " ",
+            [vim.diagnostic.severity.INFO]  = " ",
+        },
+    },
+    underline = true,
+    update_in_insert = false,
+    severity_sort = true,
+    float = {
+        border = "rounded",
+        source = "if_many",
+    },
 })
 
 

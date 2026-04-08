@@ -1,3 +1,4 @@
+
 require("snacks").setup({
     picker       = {
         enabled = true,
@@ -163,5 +164,6 @@ map("n", "<leader>ft", function()
         win = { style = "terminal", position = "float", backdrop = 60, border = "rounded", width = 0.5, height = 0.7 },
     })
 end, { desc = "Floating Terminal (cwd)" })
+
 
 

@@ -1,6 +1,6 @@
 
 local ensure_installed = {
-    "c", "cpp", "lua", "jsx",
+    "c", "cpp", "lua",
     "python", "bash", "typescript", "tsx",
     "html", "css", "javascript", "json",
     "yaml", "toml", "markdown", "regex",
