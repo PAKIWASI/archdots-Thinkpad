@@ -55,13 +55,11 @@ require("snacks").setup({
             -- { section = "startup" },
             -- TODO: error
             {
-                section = "terminal",
-                cmd = function()
-                    return require("utils.startup").format()
-                end,
-                height = 1,
+                text = {
+                    { require("utils.startup").format(), hl = "SnacksDashboardFooter" },
+                },
                 padding = 1,
-            }
+            },
         },
     },
 })
