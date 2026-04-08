@@ -14,3 +14,19 @@ autocmd('TextYankPost', {
 })
 
 
+-- Show cmdline when entering command mode
+autocmd("CmdlineEnter", {
+    callback = function()
+        vim.o.cmdheight = 1
+    end,
+    desc = "Show command line on command mode",
+})
+
+
+-- Hide cmdline when leaving command mode
+autocmd("CmdlineLeave", {
+    callback = function()
+        vim.o.cmdheight = 0
+    end,
+    desc = "Hide command line after command mode",
+})

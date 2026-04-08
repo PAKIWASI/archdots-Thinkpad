@@ -25,12 +25,6 @@ return {
         },
     },
 
-    -- Fzf-Lua : Fuzzy search in lua, needed for snacks picker
-    {
-      "ibhagwan/fzf-lua",
-      dependencies = { "nvim-tree/nvim-web-devicons" },
-      opts = {}
-    },
 
     -- color picker
     {

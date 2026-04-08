@@ -127,13 +127,8 @@ return {
 
 
     opts = {
-        picker = {
-            enabled = true,
-            backend = "fzfLua",
-        },
-        image = {
-            enabled = true,
-        },
+        picker = { enabled = true },
+        image = { enabled = true },
         notifier = { enabled = true },
         words = { enabled = true },
         bigfile = { enabled = true },

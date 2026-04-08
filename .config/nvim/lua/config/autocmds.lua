@@ -35,16 +35,3 @@ vim.api.nvim_create_autocmd("CmdlineLeave", {
     desc = "Hide command line after command mode",
 })
 
-
--- -- TODO: doesnot work ?
--- vim.api.nvim_create_autocmd("FileType", {
---     pattern = 'h',
---     callback = function()
---         vim.cmd("setfiletype c")
---         vim.bo.filetype = 'c'
---     end,
---     desc = "Treat .h as C files",
--- })
-
-
-

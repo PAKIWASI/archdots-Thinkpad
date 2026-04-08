@@ -1,4 +1,3 @@
-
 require("snacks").setup({
     picker       = {
         enabled = true,
@@ -18,15 +17,15 @@ require("snacks").setup({
     dashboard    = {
         preset = {
             keys = { -- TODO: icons
-                { key = "f", desc = "Find File",    icon = " ", action = function() Snacks.picker.smart() end },
-                { key = "n", desc = "New File",     icon = " ", action = function() vim.cmd("ene | startinsert") end },
-                { key = "g", desc = "Find Text",    icon = " ", action = function() Snacks.picker.grep() end },
-                { key = "r", desc = "Recent Files", icon = " ", action = function() Snacks.picker.recent() end },
-                { key = "p", desc = "Projects",     icon = " ", action = function() Snacks.picker.projects() end },
+                { key = "f", desc = "Find File", icon = " ", action = function() Snacks.picker.smart() end },
+                { key = "n", desc = "New File", icon = " ", action = function() vim.cmd("ene | startinsert") end },
+                { key = "g", desc = "Find Text", icon = " ", action = function() Snacks.picker.grep() end },
+                { key = "r", desc = "Recent Files", icon = " ", action = function() Snacks.picker.recent() end },
+                { key = "p", desc = "Projects", icon = " ", action = function() Snacks.picker.projects() end },
                 {
                     key = "c",
                     desc = "Config",
-                    icon = " ",
+                    icon = " ",
                     action = function()
                         Snacks.picker.files({
                             cwd = vim.fn
@@ -34,8 +33,9 @@ require("snacks").setup({
                         })
                     end
                 },
-                { key = "m", desc = "Mason", icon = " ", action = function() vim.cmd("Mason") end },
-                { key = "q", desc = "Quit",  icon = " ", action = function() vim.cmd("qa") end },
+                { key = "P", desc = "Pack", icon = " ", action = function() vim.pack.update() end },
+                { key = "m", desc = "Mason", icon = " ", action = function() vim.cmd("Mason") end },
+                { key = "q", desc = "Quit", icon = " ", action = function() vim.cmd("qa") end },
             },
             header = [[
     █     █░ ▄▄▄        ██████  ██▓ ██▒   █▓ ██▓ ███▄ ▄███▓
@@ -164,6 +164,3 @@ map("n", "<leader>ft", function()
         win = { style = "terminal", position = "float", backdrop = 60, border = "rounded", width = 0.5, height = 0.7 },
     })
 end, { desc = "Floating Terminal (cwd)" })
-
-
-

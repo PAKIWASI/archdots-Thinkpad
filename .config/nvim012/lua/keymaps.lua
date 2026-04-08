@@ -21,6 +21,7 @@ map({ 'n', 'v', 'i' }, '<C-s>', function()
     { desc = 'Write Changes' }
 )
 
+
 -- force quit
 map({ 'n', 'v', 'i' }, '<leader>qq', "<cmd>quitall<CR>", { desc = 'Force Quit' })
 
