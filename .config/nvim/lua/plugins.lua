@@ -116,8 +116,8 @@ require("plugins.snacks") -- last because dashboard measures startup time
 
 
 -- dev plugin
-vim.pack.add({
-    { src = vim.fn.expand("~/Documents/projects/lua/marker")}
-})
-require('marker').setup({})
+-- vim.pack.add({
+--     { src = vim.fn.expand("~/Documents/projects/lua/marker")}
+-- })
+-- require('marker').setup({})
 
