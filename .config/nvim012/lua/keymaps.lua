@@ -1,14 +1,13 @@
-
-
 local map = vim.keymap.set;
 local s = { silent = true }
 -- local opts = { noremap = true, silent = true }
 
+
 -- unset spacebar
 map({ "n", "v" }, "<Space>", "<Nop>", s)
-
 -- leader key (spacebar)
 vim.g.mapleader = " "
+
 
 
 -- save with C-s

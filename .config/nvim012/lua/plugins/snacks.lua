@@ -1,6 +1,6 @@
 require("snacks").setup({
     picker       = { enabled = true },
-    -- image        = { enabled = false },
+    image        = { enabled = false },
     notifier     = { enabled = true },
     words        = { enabled = true },
     bigfile      = { enabled = true },
@@ -35,17 +35,17 @@ require("snacks").setup({
                 { key = "q", desc = "Quit", icon = " ", action = function() vim.cmd("qa") end },
             },
             header = [[
-    █     █░ ▄▄▄        ██████  ██▓ ██▒   █▓ ██▓ ███▄ ▄███▓
-    ▓█░ █ ░█░▒████▄    ▒██    ▒ ▓██▒▓██░   █▒▓██▒▓██▒▀█▀ ██▒
-    ▒█░ █ ░█ ▒██  ▀█▄  ░ ▓██▄   ▒██▒ ▓██  █▒░▒██▒▓██    ▓██░
-    ░█░ █ ░█ ░██▄▄▄▄██   ▒   ██▒░██░  ▒██ █░░░██░▒██    ▒██
-    ░░██▒██▓  ▓█   ▓██▒▒██████▒▒░██░   ▒▀█░  ░██░▒██▒   ░██▒
-    ░ ▓░▒ ▒   ▒▒   ▓▒█░▒ ▒▓▒ ▒ ░░▓     ░ ▐░  ░▓  ░ ▒░   ░  ░
-    ▒ ░ ░    ▒   ▒▒ ░░ ░▒  ░ ░ ▒ ░   ░ ░░   ▒ ░░  ░      ░
-    ░   ░    ░   ▒   ░  ░  ░   ▒ ░     ░░   ▒ ░░      ░
-        ░          ░  ░      ░   ░        ░   ░         ░
-                                        ░
-            ]],
+█     █░ ▄▄▄        ██████  ██▓ ██▒   █▓ ██▓ ███▄ ▄███▓
+▓█░ █ ░█░▒████▄    ▒██    ▒ ▓██▒▓██░   █▒▓██▒▓██▒▀█▀ ██▒
+▒█░ █ ░█ ▒██  ▀█▄  ░ ▓██▄   ▒██▒ ▓██  █▒░▒██▒▓██    ▓██░
+░█░ █ ░█ ░██▄▄▄▄██   ▒   ██▒░██░  ▒██ █░░░██░▒██    ▒██
+░░██▒██▓  ▓█   ▓██▒▒██████▒▒░██░   ▒▀█░  ░██░▒██▒   ░██▒
+░ ▓░▒ ▒   ▒▒   ▓▒█░▒ ▒▓▒ ▒ ░░▓     ░ ▐░  ░▓  ░ ▒░   ░  ░
+▒ ░ ░    ▒   ▒▒ ░░ ░▒  ░ ░ ▒ ░   ░ ░░   ▒ ░░  ░      ░
+░   ░    ░   ▒   ░  ░  ░   ▒ ░     ░░   ▒ ░░      ░
+    ░          ░  ░      ░   ░        ░   ░         ░
+                                    ░
+        ]],
         },
         sections = {
             { section = "header" },
@@ -91,10 +91,10 @@ map("n", "<leader>gB", function() Snacks.gitbrowse() end, { desc = "Git Browse" 
 map("n", "<leader>gg", function() Snacks.lazygit() end, { desc = "Lazygit" })
 
 -- gh
-map("n", "<leader>gi", function() Snacks.picker.gh_issue() end, { desc = "GitHub Issues (open)" })
-map("n", "<leader>gI", function() Snacks.picker.gh_issue({ state = "all" }) end, { desc = "GitHub Issues (all)" })
-map("n", "<leader>gp", function() Snacks.picker.gh_pr() end, { desc = "GitHub PRs (open)" })
-map("n", "<leader>gP", function() Snacks.picker.gh_pr({ state = "all" }) end, { desc = "GitHub PRs (all)" })
+-- map("n", "<leader>gi", function() Snacks.picker.gh_issue() end, { desc = "GitHub Issues (open)" })
+-- map("n", "<leader>gI", function() Snacks.picker.gh_issue({ state = "all" }) end, { desc = "GitHub Issues (all)" })
+-- map("n", "<leader>gp", function() Snacks.picker.gh_pr() end, { desc = "GitHub PRs (open)" })
+-- map("n", "<leader>gP", function() Snacks.picker.gh_pr({ state = "all" }) end, { desc = "GitHub PRs (all)" })
 
 -- grep
 map("n", "<leader>sb", function() Snacks.picker.lines() end, { desc = "Buffer Lines" })
@@ -162,7 +162,7 @@ end, { desc = "Floating Terminal (cwd)" })
 
 map("n", "<leader>fT", function()
     Snacks.terminal(nil, {
-        cwd = require("utils.root").get(), -- TODO: this requires buffno
+        cwd = require("utils.root").get(),
         win = require("utils.win").float,
     })
 end, { desc = "Floating Terminal (cwd)" })

@@ -95,26 +95,29 @@ vim.pack.add({ { src = "https://github.com/folke/todo-comments.nvim" } })
 require("plugins.todo-comments")
 
 
+-- TODO: 
+local disabled_built_ins = {
+    "gzip",
+    "zipPlugin",
+    "tarPlugin",
+    "netrw",
+    "netrwPlugin",
+    "tutor_mode_plugin"
+}
+
+for _, plugin in ipairs(disabled_built_ins) do
+    vim.g["loaded_" .. plugin] = 1
+end
+
+
 -- Snacks slop - too much shit but I depend on it
 vim.pack.add({ { src = "https://github.com/folke/snacks.nvim" } })
 require("plugins.snacks") -- last because dashboard measures startup time
 
-local disabled_built_ins = {
-    "gzip",
-    "zip",
-    "zipPlugin",
-    "tar",
-    "tarPlugin",
-    "getscript",
-    "getscriptPlugin",
-    "vimball",
-    "vimballPlugin",
-    "2html_plugin",
-    "logipat",
-    "rrhelper",
-    "netrw",
-    "netrwPlugin",
-    "netrwSettings",
-    "netrwFileHandlers",
-    "tutor",
-}
+
+-- dev plugin
+vim.pack.add({
+    { src = vim.fn.expand("~/Documents/projects/lua/marker")}
+})
+require('marker').setup({})
+

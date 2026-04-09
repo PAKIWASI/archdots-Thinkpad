@@ -8,7 +8,7 @@ function M.get()
 end
 
 function M.format()
-    return string.format("\t\t\t\t\t\t  Startup: %.2f ms", M.get())
+    return string.format("\t\t\t\t\t    Startup: %.2f ms", M.get())
 end
 
 return M
