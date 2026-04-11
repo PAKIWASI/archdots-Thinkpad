@@ -33,7 +33,7 @@ opt.scrolloff = 8           -- Keep 8 lines above and below the cursor
 
 opt.inccommand = "nosplit"  -- Shows the effects of a command incrementally in the buffer
 
-opt.undodir = os.getenv('HOME') .. '/.nvim012/undodir'  -- Directory for undo files
+opt.undodir = os.getenv('HOME') .. '/.local/state/nvim/undodir'  -- Directory for undo files
 opt.undofile = true         -- Enable persistent undo
 
 opt.completeopt = { "menu", "menuone", "noselect" }

@@ -67,6 +67,7 @@ require("plugins.ccc")
 -- mini plugins - small, effective plugins
 vim.pack.add({ { src = "https://github.com/echasnovski/mini.pairs" } })
 vim.pack.add({ { src = "https://github.com/echasnovski/mini.move" } })
+vim.pack.add({ { src = "https://github.com/echasnovski/mini.surround"} })
 require("plugins.mini")
 
 
@@ -95,7 +96,7 @@ vim.pack.add({ { src = "https://github.com/folke/todo-comments.nvim" } })
 require("plugins.todo-comments")
 
 
--- TODO: 
+-- TODO:
 local disabled_built_ins = {
     "gzip",
     "zipPlugin",
@@ -116,8 +117,8 @@ require("plugins.snacks") -- last because dashboard measures startup time
 
 
 -- dev plugin
--- vim.pack.add({
---     { src = vim.fn.expand("~/Documents/projects/lua/marker")}
--- })
--- require('marker').setup({})
+require("marker").setup({
+    greeting = "it's markin' time",
+})
+
 

@@ -24,15 +24,5 @@ vim.api.nvim_create_autocmd("FileType", {
     end,
 })
 
--- incremental selection
-vim.keymap.set("n", "<C-space>", function()
-    require("nvim-treesitter.incremental_selection").init_selection()
-end, { desc = "TS: Init selection" })
 
-vim.keymap.set("x", "<C-space>", function()
-    require("nvim-treesitter.incremental_selection").node_incremental()
-end, { desc = "TS: Increment node" })
 
-vim.keymap.set("x", "<bs>", function()
-    require("nvim-treesitter.incremental_selection").node_decremental()
-end, { desc = "TS: Decrement node" })

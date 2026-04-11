@@ -42,7 +42,7 @@ map('v', '>', '>gv', { desc = 'Indent right and reselect' })
 -- Paste without overwriting the default register
 map("v", "<leader>p", '"_dP')
 
-map("n", "<leader>ps", '<cmd>lua vim.pack.update()<CR>')
+
 
 
 

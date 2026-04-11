@@ -21,8 +21,6 @@ autocmd("CmdlineEnter", {
     end,
     desc = "Show command line on command mode",
 })
-
-
 -- Hide cmdline when leaving command mode
 autocmd("CmdlineLeave", {
     callback = function()
@@ -30,3 +28,12 @@ autocmd("CmdlineLeave", {
     end,
     desc = "Hide command line after command mode",
 })
+
+
+-- .h files were set to cpp by default
+autocmd('BufEnter', {
+    pattern = '*.h',
+    command = "setfiletype c",
+})
+
+
