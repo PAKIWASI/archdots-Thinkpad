@@ -9,11 +9,10 @@ map({ "n", "v" }, "<Space>", "<Nop>", s)
 vim.g.mapleader = " "
 
 
-
 -- save with C-s
 map({ 'n', 'v', 'i' }, '<C-s>', function()
         if vim.bo.modified then
-            vim.cmd("write")
+            vim.cmd("noautocmd write")
         end
     end,
     { desc = 'Write Changes' }
@@ -41,7 +40,6 @@ map('v', '>', '>gv', { desc = 'Indent right and reselect' })
 
 -- Paste without overwriting the default register
 map("v", "<leader>p", '"_dP')
-
 
 
 
