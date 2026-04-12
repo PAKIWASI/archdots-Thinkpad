@@ -7,7 +7,7 @@ map("n", "[t", function() require("todo-comments").jump_prev() end, { desc = "Pr
 map("n", "<leader>st", function() Snacks.picker.todo_comments() end, { desc = "Todo" })
 map("n", "<leader>sT", function()
         Snacks.picker.todo_comments({
-            keywords = { "TODO", "FIX", "FIXME", "BUG", "NOTE", "WARN", "WARNING" }
+            keywords = { "TODO", "FIX", "FIXME", "BUG", "NOTE", "WARN", "WARNING", "TEST" }
         })
     end,
     { desc = "Todo/Fix/Fixme" }
