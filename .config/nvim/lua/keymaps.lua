@@ -20,10 +20,10 @@ map({ 'n', 'v', 'i' }, '<C-s>', function()
 
 
 -- force quit
-map({ 'n', 'v' }, '<leader>qq', "<cmd>quitall<CR>", { desc = 'Force Quit' })
+map({ 'n', 'v' }, '<leader>qq', function() vim.cmd("q!") end, { desc = 'Force Quit' })
 
 -- Change directory to the current file's directory
-map("n", "<leader>cd", '<cmd>lua vim.fn.chdir(vim.fn.expand("%:p:h"))<CR>')
+map("n", "<leader>bcd", '<cmd>lua vim.fn.chdir(vim.fn.expand("%:p:h"))<CR>')
 
 -- split navigation
 map("n", "<C-h>", "<C-w>h")

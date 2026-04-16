@@ -97,11 +97,12 @@ EOF
 
 # Create sample c file
 cat > src/example.c << 'EOF'
+#include "example.h"
 #include <stdio.h>
 
 void print_hello(void)
 {
-    printf("Hello from C99 CMake Ninja project!\n");
+    printf("Hello from C11 CMake Ninja project!\n");
 }
 EOF
 

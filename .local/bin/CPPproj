@@ -95,6 +95,7 @@ EOF
 
 # Create sample cpp file
 cat > src/example.cpp << 'EOF'
+#include "example.hpp"
 #include <iostream>
 
 void print_hello()

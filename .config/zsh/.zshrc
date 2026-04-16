@@ -170,7 +170,9 @@ alias ndc='VIMRUNTIME=/home/wasi/Documents/projects/foss/neovim/runtime /home/wa
 alias C='cmake -G Ninja -S . -B build/'
 alias b='ninja -C build'
 alias x='./build/main'
+alias t='./build/tests'
 alias bx='ninja -C build && ./build/main'
+alias bt='ninja -C build && ./build/tests'
 
 # misc
 alias c='clear'
