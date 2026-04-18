@@ -203,17 +203,17 @@ alias tl='tmux list-sessions'
 alias tks='tmux kill-session'
 alias tkS='tmux kill-server'
 
-# tmux cursor fix
-if [[ -n "$TMUX" ]]; then
-  _tmux_cursor_fix() { echo -ne '\e[5 q'; }
-  precmd_functions+=(_tmux_cursor_fix)
-
-  zle-keymap-select() {
-    [[ $KEYMAP == vicmd ]] && echo -ne '\e[1 q' || echo -ne '\e[5 q'
-    zle reset-prompt
-  }
-  zle -N zle-keymap-select
-fi
+# # tmux cursor fix
+# if [[ -n "$TMUX" ]]; then
+#   _tmux_cursor_fix() { echo -ne '\e[5 q'; }
+#   precmd_functions+=(_tmux_cursor_fix)
+#
+#   zle-keymap-select() {
+#     [[ $KEYMAP == vicmd ]] && echo -ne '\e[1 q' || echo -ne '\e[5 q'
+#     zle reset-prompt
+#   }
+#   zle -N zle-keymap-select
+# fi
 
 # ===== EZA =====
 export EZA_THEME=$HOME/.config/eza/theme.yml
