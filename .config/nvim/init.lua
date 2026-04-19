@@ -8,7 +8,7 @@ require('keymaps')
 
 require('autocmds')
 
-require('plugins')
+require('plugins') -- time measured till end of this
 
 require('lsp')
 
