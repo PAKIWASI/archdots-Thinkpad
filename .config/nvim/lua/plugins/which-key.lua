@@ -12,6 +12,7 @@ require("which-key").setup({
             { "<leader>o", group = "oil" },
             { "<leader>s", group = "search" },
             { "<leader>u", group = "ui" },
+            { "<leader>d", group = "debug" },
             { "<leader>x", group = "diagnostics/quickfix" },
             { "<leader>q", group = "quit/session" },
             { "[",         group = "prev" },
