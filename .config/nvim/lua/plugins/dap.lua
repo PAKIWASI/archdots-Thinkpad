@@ -175,5 +175,10 @@ map("n", "<leader>du", function()
     vim.o.mouse = dapui_open and "a" or ""
 end, { desc = "Dap UI" })
 
-
+-- map("n", "<leader>dr", function()
+--     dap.repl.toggle({
+--         height = 20,
+--         width = 80,
+--     }, "split")   -- "split", "vsplit", or "tabedit"
+-- end, { desc = "Toggle REPL" })
 
