@@ -7,6 +7,7 @@ local s = { silent = true }
 map({ "n", "v" }, "<Space>", "<Nop>", s)
 -- leader key (spacebar)
 vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 
 -- save with C-s

@@ -3,10 +3,10 @@
 )
 
 (defsrc
-  tab                                    i        
-  a       s    d    f    g    h    j    k    l    ;    '    \
+  tab                                       i
+        a       s    d    f    g    h    j    k    l    ;    '    \
   caps                          spc
-  lsft    <      v                                  n  m  
+  lsft    <      v                                  n  m
 )
 
 (defalias
@@ -14,7 +14,7 @@
   MOD_S (tap-hold 50 250 s lalt)
   MOD_D (tap-hold 50 250 d lctl)
   MOD_F (tap-hold 50 250 f lsft)
-                     
+
   MOD_J (tap-hold 50 250 j rsft)
   MOD_K (tap-hold 50 250 k rctl)
   MOD_L (tap-hold 50 250 l ralt)
@@ -41,7 +41,7 @@
   NAV_K (tap-hold 50 250 8 rctl)
   NAV_L (tap-hold 50 250 9 ralt)
   NAV_colon 0
-  NAV_QUOTE - 
+  NAV_QUOTE -
   NAV_SLASH =
   NAV_TAB grv
 )
@@ -63,22 +63,22 @@
 )
 
 (deflayer base
-  tab                                @DOUBLE_I        
+  tab                                @DOUBLE_I
   @MOD_A @MOD_S @MOD_D @MOD_F  g   h    @MOD_J @MOD_K @MOD_L @MOD_colon ' \
   @MOD_CAPS           @MOD_SPC
   @MOD_LSFT  @MOD_EXTRA             @DOUBLE_V       @MOD_N     @MOD_M
 )
 
 (deflayer nav
-  @NAV_TAB                                @DOUBLE_I        
+  @NAV_TAB                                @DOUBLE_I
   @NAV_A @NAV_S @NAV_D @NAV_F @NAV_G @NAV_H @NAV_J @NAV_K @NAV_L @NAV_colon @NAV_QUOTE @NAV_SLASH
   @MOD_CAPS       _
-  @MOD_LSFT     _               @DOUBLE_V       @MOD_N       @MOD_M             
+  @MOD_LSFT     _               @DOUBLE_V       @MOD_N       @MOD_M
 )
 
 (deflayer arrow
-  _                                         _    
-  _ _ _ _ _ @ARROW_H @ARROW_J @ARROW_K @ARROW_L _ _ _ 
+  _                                         _
+  _ _ _ _ _ @ARROW_H @ARROW_J @ARROW_K @ARROW_L _ _ _
   _       _
   _     _               _      _   _
 )
